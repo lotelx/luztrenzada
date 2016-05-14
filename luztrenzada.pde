@@ -14,13 +14,14 @@ AudioInput in;
 
 Cuerda[] cuerdasL = new Cuerda[12];
 Cuerda[] cuerdasR = new Cuerda[12];
-float[] tablaL = new float[1500];
-float[] tablaR = new float[1500];
+float[] tablaL = new float[1440];
+float[] tablaR = new float[1440];
 
 void setup()
 {
   //3200 * 1800 lenovo
-  size(3000, 1700);
+  //1449 X 900 MacBook
+  size(1440, 900);
   //smooth();
   //fullScreen();
   //Modelo de color de 360 grados y 100%, 100%
@@ -29,7 +30,7 @@ void setup()
   // get a line in from Minim, default bit depth is 16
   minim = new Minim(this);
   //minim.debugOn();
-  in = minim.getLineIn(Minim.STEREO, width/2);
+  in = minim.getLineIn(Minim.STEREO, width);
   println("Buffersize audio in: " + in.bufferSize());
   
  setCuerdas();
@@ -128,7 +129,6 @@ void draw()
 updateTables();
 
   for (int k=0;k<cuerdasL.length;k++) {
-    
     cuerdasL[k].draw();
     cuerdasR[k].draw();
   }
